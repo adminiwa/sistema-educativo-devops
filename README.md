@@ -50,7 +50,7 @@ sistema-educativo-devops/
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/sistema-educativo-devops.git
+   git clone https://github.com/adminiwa/sistema-educativo-devops.git
    cd sistema-educativo-devops
 
 Compilar los microservicios:
