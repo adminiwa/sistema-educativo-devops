@@ -24,6 +24,36 @@ El sistema se compone de los siguientes microservicios:
 - GitHub Actions para CI/CD
 - Prometheus y Grafana para monitorización
 
+## Capturas del Sistema en Funcionamiento
+
+### Panel de Eureka
+El panel de Eureka muestra los servicios registrados y su estado:
+![Panel de Eureka](img/Eureka-dashboard.png)
+
+### API de Asignaturas
+Creación exitosa de una asignatura:
+![Creación de Asignatura](img/CreateAsignaturaOK.png)
+
+Manejo de errores en la API:
+![Error en API](img/CreateAsignaturaError.png)
+
+### Monitorización con Prometheus y Grafana
+Panel de Prometheus mostrando los targets monitorizados:
+![Prometheus Targets](img/Prometheus.png)
+
+Error de conexión en Prometheus:
+![Prometheus Error](img/PrometheusError.png)
+
+Dashboard básico en Grafana:
+![Dashboard de Grafana](img/Grafana.png)
+
+Monitoreo detallado con Grafana:
+![Monitoreo en Grafana](img/GrafanaMonitoreo.png)
+
+### Contenedores Docker
+Estado de los contenedores en ejecución:
+![Docker Compose](img/Docker-compose.png)
+
 ## Prerequisitos
 
 - Java 17 o superior
@@ -53,7 +83,7 @@ sistema-educativo-devops/
    git clone https://github.com/adminiwa/sistema-educativo-devops.git
    cd sistema-educativo-devops
 
-Compilar los microservicios:
+## Compilar los microservicios:
 bashcd usuarios-servicio && mvn clean package -DskipTests
 cd ../asignaturas-servicio && mvn clean package -DskipTests
 cd ../matriculas-servicio && mvn clean package -DskipTests
@@ -61,10 +91,10 @@ cd ../eureka-server && mvn clean package -DskipTests
 cd ../config-server && mvn clean package -DskipTests
 cd ..
 
-Ejecutar con Docker Compose:
+## Ejecutar con Docker Compose:
 bashdocker-compose up -d
 
-Acceder a los servicios:
+## Acceder a los servicios:
 
 Eureka: http://localhost:8761
 API de Usuarios: http://localhost:8081
@@ -75,40 +105,40 @@ Grafana: http://localhost:3000 (usuario: admin, contraseña: admin)
 
 
 
-Endpoints principales
+## Endpoints principales
 Servicio de Usuarios
 
 POST /api/auth/registro - Registrar nuevo usuario
 POST /api/auth/login - Iniciar sesión y obtener token JWT
 GET /api/usuarios - Listar usuarios (requiere autenticación)
 
-Servicio de Asignaturas
+## Servicio de Asignaturas
 
 GET /api/asignaturas - Listar todas las asignaturas
 POST /api/asignaturas - Crear una nueva asignatura
 GET /api/asignaturas/{id} - Obtener asignatura por ID
 GET /api/asignaturas/nivel/{nivel} - Filtrar por nivel
 
-Servicio de Matrículas
+## Servicio de Matrículas
 
 GET /api/matriculas - Listar todas las matrículas
 POST /api/matriculas - Crear una nueva matrícula
 GET /api/matriculas/estudiante/{estudianteId} - Filtrar por estudiante
 GET /api/matriculas/asignatura/{asignaturaId} - Filtrar por asignatura
 
-CI/CD con GitHub Actions
+## CI/CD con GitHub Actions
 El proyecto incluye un pipeline de CI/CD configurado en GitHub Actions que ejecuta pruebas automáticas cuando se realiza un push al repositorio.
 Monitorización
 
 Prometheus: Recolecta métricas de todos los microservicios a través de Spring Boot Actuator.
 Grafana: Visualiza las métricas recolectadas por Prometheus mediante dashboards personalizables.
 
-Limitaciones conocidas
+## Limitaciones conocidas
 
 El servicio de usuarios presenta un problema de dependencia circular entre componentes que puede afectar a su funcionamiento.
 Para obtener más información, consulta la sección "Problemas y desafíos" en la documentación del proyecto.
 
-Contribución
+## Contribución
 
 Fork del repositorio
 Crear una rama (git checkout -b feature/nueva-caracteristica)
@@ -116,5 +146,9 @@ Commit de los cambios (git commit -am 'Añadir nueva característica')
 Push a la rama (git push origin feature/nueva-caracteristica)
 Crear un Pull Request
 
-Licencia
+## Licencia
 Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
+
+Este README ahora incluye una sección dedicada a las capturas de pantalla, mostrando visualmente diferentes aspectos de tu sistema. Las imágenes están organizadas por categorías (Eureka, API, Monitorización, Docker) para facilitar la comprensión.
+
+El archivo ahora es mucho más completo y proporciona una mejor documentación visual de tu proyecto, lo que será muy valioso para tu entrega.
